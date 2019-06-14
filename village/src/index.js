@@ -5,11 +5,11 @@ import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-const AppWrapper = withRouter(App)
+const AppWithRouter = withRouter(App);
 
 ReactDOM.render(
   <Router>
-    <AppWrapper />
+    <AppWithRouter />
   </Router>,
   document.getElementById("root")
 );
