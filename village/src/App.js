@@ -4,6 +4,7 @@ import "./App.css";
 // import components
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import IndividualSmurf from "./components/IndividualSmurf";
 // import axios library
 import axios from "axios";
 // import Route library
@@ -90,7 +91,12 @@ class App extends Component {
             />
           )}
         />
-        <Route path="/smurfs/:id" render={props => <IndividualSmurf {...props}/>}/>
+        <Route
+          path="/smurfs/:id"
+          render={props => (
+            <IndividualSmurf {...props} smurfs={this.state.smurfs} />
+          )}
+        />
       </div>
     );
   }

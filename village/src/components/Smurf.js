@@ -7,10 +7,7 @@ const Smurf = props => {
     props.history.push(`/smurfs/${smurf.id}`);
   }
   return (
-    <>
-    <Link to `"smurf/${: id
-}`>
-    {/* <div
+     <div
       onClick={event => routeToSmurf(event, props.smurfObject)}
       className="Smurf"
     >
@@ -23,9 +20,7 @@ const Smurf = props => {
       <button onClick={event => props.deleteSmurf(event, props.id)}>
         Delete smurf
       </button>
-    </div> */}
-  <Link />
-  </>
+    </div> 
   );
 };
 
