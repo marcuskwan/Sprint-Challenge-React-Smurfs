@@ -51,6 +51,19 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  // delete smurf
+  deleteSmurf = (event, id) => {
+    // prevent btn refresh
+    event.preventDefault();
+    axios
+      // post new smurf using url, newSmurf object
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      // sets this.state.smurfs to res.data again
+      .then(res => this.setState({ smurfs: res.data }))
+      // log errors
+      .catch(err => console.log(err));
+  };
+
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
@@ -69,7 +82,14 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              updateSmurf={this.updateSmurf}
+            />
+          )}
         />
       </div>
     );
