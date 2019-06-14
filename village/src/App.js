@@ -15,9 +15,26 @@ class App extends Component {
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   componentDidMount() {
     axios
+      // making api req
       .get("http://localhost:3333/smurfs")
+      // sets this.state.smurfs to res.data
       .then(res => this.setState({ smurfs: res.data }))
+      // log errors
       .catch(err => console.log(err));
+  }
+  // adding smurf fn, takes in e and id
+  addSmurf = (e, id) => {
+    // prevent btn refresh
+    e.preventDefault();
+    axios
+      // updating server with put using id
+      .put(`"http://localhost:3333/smurfs/${id}"`)
+      // sets this.state.smurfs to res.data again
+      .then(res => this.setState({ smurfs: res.data }))
+      // log errors
+      .catch(err => console.log(err));
+  }
+
   }
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
