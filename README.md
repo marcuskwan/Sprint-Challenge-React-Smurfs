@@ -68,7 +68,7 @@ Construct your Components to build a Single Page Application. Keep your componen
 - [ x] Display those smurfs in a list on the screen.
 - [ x] Construct an AXIOS request to `POST` to add a Smurf to the Smurf DB you'll need all three fields.
 - [ x] Create a form that will allow users to add Smurfs to the Smurf DB.
-- [ ] If a Smurf is created correctly, you should see a response that is an array of Smurfs with unique id's assigned to each Smurf.
+- [ x] If a Smurf is created correctly, you should see a response that is an array of Smurfs with unique id's assigned to each Smurf.
 
 - Example:
 
@@ -84,7 +84,7 @@ Construct your Components to build a Single Page Application. Keep your componen
 
 Add a Router to this application by using React Router.
 
-- [ ] You'll start by wrapping your `root` component in the `Router` component.
+- [x ] You'll start by wrapping your `root` component in the `Router` component.
 - [ ] Declare your routes with `Route`.
 - [ ] Then make it so you can navigate to your routes using `Link`.
 - [ ] Create two `routes` in your `App` component, one at `'/'` for your `Smurfs` component,and one at `/smurf-form` for your form.
