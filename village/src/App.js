@@ -23,9 +23,8 @@ class App extends Component {
       .catch(err => console.log(err));
   }
   // adding smurf fn, takes in e and id
-  addSmurf = (e, newSmurf) => {
+  addSmurfApp = (newSmurf) => {
     // prevent btn refresh
-    e.preventDefault();
     axios
       // post new smurf using url, newSmurf object 
       .post("http://localhost:3333/smurfs/",newSmurf)
@@ -36,7 +35,7 @@ class App extends Component {
   }
 
   // update smurf 
-  addSmurf = (e, id) => {
+  updateSmurf = (e, id) => {
     // prevent btn refresh
     e.preventDefault();
     axios
@@ -48,13 +47,12 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  }
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm addSmurfApp={this.addSmurfApp}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
