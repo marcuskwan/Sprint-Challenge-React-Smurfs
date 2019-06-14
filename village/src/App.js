@@ -23,6 +23,19 @@ class App extends Component {
       .catch(err => console.log(err));
   }
   // adding smurf fn, takes in e and id
+  addSmurf = (e, newSmurf) => {
+    // prevent btn refresh
+    e.preventDefault();
+    axios
+      // post new smurf using url, newSmurf object 
+      .post("http://localhost:3333/smurfs/",newSmurf)
+      // sets this.state.smurfs to res.data again
+      .then(res => this.setState({ smurfs: res.data }))
+      // log errors
+      .catch(err => console.log(err));
+  }
+
+  // update smurf 
   addSmurf = (e, id) => {
     // prevent btn refresh
     e.preventDefault();
