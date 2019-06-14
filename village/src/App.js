@@ -39,12 +39,12 @@ class App extends Component {
   };
 
   // update smurf
-  updateSmurf = (e, id) => {
+  updateSmurf = (event, smurf) => {
     // prevent btn refresh
-    e.preventDefault();
+    event.preventDefault();
     axios
       // updating server with put using id
-      .put(`"http://localhost:3333/smurfs/${id}"`)
+      .put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
       // sets this.state.smurfs to res.data again
       .then(res => this.setState({ smurfs: res.data }))
       // log errors
@@ -80,7 +80,6 @@ class App extends Component {
           )}
         />
         <Route
-          exact
           path="/"
           render={props => (
             <Smurfs
@@ -91,6 +90,7 @@ class App extends Component {
             />
           )}
         />
+        <Route path="/smurfs/:id" render={props => <IndividualSmurf {...props}/>}/>
       </div>
     );
   }
